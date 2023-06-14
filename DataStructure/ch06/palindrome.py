@@ -20,17 +20,24 @@ def isPalindromel(s: str) -> bool:
 print(isPalindromel(b))
 
 """ 데크 기반 펠린드롬"""
+# def isPalindromed(s: str) -> bool:
+#     strs: Deque = collections.deque()
+#
+#     for char in s:
+#         if char.isalnum():
+#             strs.append(char.lower)
+#
+#     while len(strs) > 1:
+#         if strs.popleft() != strs.pop():
+#             return False
+#     return True
+#
+# print(isPalindromed(a))
 
-def isPalindromed(s: str) -> bool:
-    strs: Deque = collections.deque()
 
-    for char in s:
-        if char.isalnum():
-            strs.append(char.lower)
 
-    while len(strs) > 1:
-        if strs.popleft() != strs.pop():
-            return False
-    return True
+def isPalindromes(s:str) -> bool:
+    s = s.lower()
+    s = re.sub('[^a-z0-9]', '', s)
 
-print(isPalindromed(a))
+    return s == s[::-1]
